@@ -22,7 +22,7 @@
     rustup
     nixfmt-rfc-style
     python313
-    nodejs_22
+    nodejs_23
     zip
   ];
 
