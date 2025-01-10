@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -13,17 +12,18 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "24.05"; # Please read the comment before changing.
+  home.stateVersion = "24.11"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    pkgs.go
-    pkgs.nil
-    pkgs.rustup
-    pkgs.nixfmt-rfc-style
-    pkgs.python313
-    pkgs.nodejs_22
+  home.packages = with pkgs; [
+    go
+    nil
+    rustup
+    nixfmt-rfc-style
+    python313
+    nodejs_22
+    zip
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -91,9 +91,14 @@
         # keys
         bindkey '^H' backward-kill-word
         bindkey '\e' backward-kill-line
+        bindkey '^[[1;5D' backward-word
+        bindkey '^[[1;5C' forward-word
       '';
     };
-    fzf.enable = true;
+    fzf = {
+      enable = true;
+      tmux.enableShellIntegration = true;
+    };
     gh = {
       enable = true;
       settings.aliases = {
@@ -106,6 +111,7 @@
       vimAlias = true;
       defaultEditor = true;
     };
+    ripgrep.enable = true;
     starship = {
       enable = true;
       settings = import ./starship.nix;
