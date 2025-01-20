@@ -19,10 +19,11 @@
   home.packages = with pkgs; [
     go
     nil
-    rustup
     nixfmt-rfc-style
-    python313
     nodejs_23
+    python313
+    rustup
+    uv
     zip
   ];
 
@@ -93,6 +94,8 @@
         bindkey '\e' backward-kill-line
         bindkey '^[[1;5D' backward-word
         bindkey '^[[1;5C' forward-word
+
+        eval "$(uv generate-shell-completion zsh)"
       '';
     };
     fzf = {
