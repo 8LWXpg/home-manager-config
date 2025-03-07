@@ -17,14 +17,10 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    go
     nil
     nixfmt-rfc-style
     nodejs_23
-    python313
-    rustup
     uv
-    zip
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -62,6 +58,10 @@
     VISUAL = "nvim";
   };
 
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
+
   home.shellAliases = {
     ls = "ls --color=auto";
     ll = "ls -alF";
@@ -76,27 +76,6 @@
   programs = {
     bash = {
       enable = true;
-      profileExtra = ''
-        . $HOME/.nix-profile/etc/profile.d/nix.sh
-      '';
-    };
-    zsh = {
-      enable = true;
-      initExtraFirst = ''
-        . "$HOME/.profile"
-      '';
-      initExtra = ''
-        # set Esc timeout to 10ms
-        KEYTIMEOUT=1
-
-        # keys
-        bindkey '^H' backward-kill-word
-        bindkey '\e' backward-kill-line
-        bindkey '^[[1;5D' backward-word
-        bindkey '^[[1;5C' forward-word
-
-        eval "$(uv generate-shell-completion zsh)"
-      '';
     };
     fzf = {
       enable = true;
@@ -125,7 +104,6 @@
       package = pkgs.yazi-unwrapped;
       # defaults to false for unknow reasons
       enableBashIntegration = true;
-      enableZshIntegration = true;
     };
     zoxide.enable = true;
   };
