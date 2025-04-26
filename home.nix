@@ -20,6 +20,7 @@
     nil
     nixfmt-rfc-style
     uv
+    rustup
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -59,6 +60,7 @@
 
   home.sessionPath = [
     "$HOME/.local/bin"
+    "$HOME/.cargo/bin"
   ];
 
   home.shellAliases = {
