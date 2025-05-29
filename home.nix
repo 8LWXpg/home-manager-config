@@ -17,10 +17,13 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    _7zz
+    gh
     nil
     nixfmt-rfc-style
     uv
     rustup
+    wslu
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -81,12 +84,6 @@
     fzf = {
       enable = true;
       tmux.enableShellIntegration = true;
-    };
-    gh = {
-      enable = true;
-      settings.aliases = {
-        co = "pr checkout";
-      };
     };
     neovim = {
       enable = true;
