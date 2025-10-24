@@ -20,6 +20,7 @@
     _7zz
     gh
     nixd
+    nixfmt
     nodejs-slim_24
     uv
     rustup
