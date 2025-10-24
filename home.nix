@@ -19,10 +19,11 @@
   home.packages = with pkgs; [
     _7zz
     gh
-    nil
-    nixfmt-rfc-style
+    nixd
+    nodejs-slim_24
     uv
     rustup
+    tree-sitter
     wslu
   ];
 
@@ -78,9 +79,8 @@
   };
 
   programs = {
-    bash = {
-      enable = true;
-    };
+    bash.enable = true;
+    fd.enable = true;
     fzf = {
       enable = true;
       tmux.enableShellIntegration = true;
@@ -97,12 +97,13 @@
       enable = true;
       settings = import ./starship.nix;
     };
-    tealdeer.enable = true;
+    tealdeer = {
+      enable = true;
+      settings.updates.auto_update = true;
+    };
     yazi = {
       enable = true;
       package = pkgs.yazi-unwrapped;
-      # defaults to false for unknow reasons
-      enableBashIntegration = true;
     };
     zoxide.enable = true;
   };
