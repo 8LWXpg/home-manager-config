@@ -82,13 +82,9 @@
   programs = {
     bash.enable = true;
     fd.enable = true;
-    fzf = {
-      enable = true;
-      tmux.enableShellIntegration = true;
-    };
+    fzf.enable = true;
     neovim = {
       enable = true;
-      package = pkgs.neovim-unwrapped;
       viAlias = true;
       vimAlias = true;
       defaultEditor = true;
