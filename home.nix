@@ -19,11 +19,11 @@
   home.packages = with pkgs; [
     _7zz
     gh
+    lazygit
     nixd
     nixfmt
     nodejs-slim_24
     uv
-    rustup
     tree-sitter
     wslu
   ];
