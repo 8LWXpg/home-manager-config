@@ -18,8 +18,8 @@
     symbol = " ";
   };
   time = {
-    format = "[$time](#61D6D6) ";
     time_format = "%R";
+    format = "[$time](#61D6D6) ";
     disabled = false;
   };
   git_branch = {
