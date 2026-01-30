@@ -19,7 +19,6 @@
   home.packages = with pkgs; [
     _7zz
     gh
-    lazygit
     nixd
     nixfmt
     nodejs-slim_24
@@ -83,6 +82,10 @@
     bash.enable = true;
     fd.enable = true;
     fzf.enable = true;
+    lazygit = {
+      enable = true;
+      settings = import ./lazygit.nix;
+    };
     neovim = {
       enable = true;
       viAlias = true;

@@ -19,6 +19,7 @@
   };
   time = {
     format = "[$time](#61D6D6) ";
+    time_format = "%R";
     disabled = false;
   };
   git_branch = {
@@ -45,4 +46,3 @@
     format = "[](#B5B50D) ";
   };
 }
-
