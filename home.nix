@@ -79,7 +79,22 @@
   };
 
   programs = {
-    bash.enable = true;
+    bash = {
+      enable = true;
+      initExtra = ''
+        function nvim() {
+          local tmp=$(mktemp)
+          export NVIM_LAST_DIR_FILE="$tmp"
+          command nvim "$@"
+          local cwd=$(cat "$tmp" 2>/dev/null)
+          if cwd="$(<"$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+            builtin cd -- "$cwd"
+          fi
+          rm -f -- "$tmp"
+        }
+        alias vi=nvim
+      '';
+    };
     fd.enable = true;
     fzf.enable = true;
     lazygit = {
