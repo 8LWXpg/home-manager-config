@@ -22,6 +22,7 @@
     nixd
     nixfmt
     nodejs-slim_24
+    rustup
     uv
     tree-sitter
     wslu
@@ -97,6 +98,7 @@
     };
     fd.enable = true;
     fzf.enable = true;
+    go.enable = true;
     lazygit = {
       enable = true;
       settings = import ./lazygit.nix;
